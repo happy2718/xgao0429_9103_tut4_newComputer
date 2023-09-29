@@ -17,6 +17,8 @@
 ![An image of a cat](assets/part1_2.JPG)
 ![An image of a cat](assets/part1_3.png)
 ### Part 2: Coding Technique Exploration
+**Connection between Parts 1 and 2:**
+- The people in part1 are just like the mouse, and using this as inspiration, I can look for some coding technology that produces patterns around the mouse
 **Coding Technique:**
 - By using mouseX and mouseY variables, the real-time position of the mouse is read, and the effect of the pattern generated around the mouse is achieved
 - Create and modify a geometry class (such as the pattern class), generate and draw new pattern instances based on mouse position, and update and render all instances stored in the array
