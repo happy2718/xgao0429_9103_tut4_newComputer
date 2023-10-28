@@ -10,7 +10,7 @@ function setup() {
 
 function initializeSketch() {
   movingCircles = [];
-  for (let i = 0; i < 800; i++) {
+  for (let i = 0; i < 150; i++) {
     movingCircles.push(new MovingCircle());
   }
 }
@@ -37,8 +37,8 @@ class MovingCircle {
     this.zPosition -= movingSpeed;
     if (this.zPosition < 1) {
       this.zPosition = width;
-      this.xPosition = random(-width, width);
-      this.yPosition = random(-height, height);
+      this.xPosition = random(-width/2, width/2);
+      this.yPosition = random(-height/2, height/2);
     }
   }
 
@@ -46,7 +46,11 @@ class MovingCircle {
     let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
     let adjustedYPosition = map(this.yPosition / this.zPosition, 0, 1, 0, height);
     let circleRadius = map(this.zPosition, 0, width, 200, 50);
+    push();
+    translate(adjustedXPosition, adjustedYPosition);
+    scale(circleRadius / 200);
     this.circle.display();
+    pop();
   }
 }
 
