@@ -10,7 +10,7 @@ function setup() {
 
 function initializeSketch() {
   movingCircles = [];
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 100; i++) {
     movingCircles.push(new MovingCircle());
   }
 }
@@ -23,6 +23,19 @@ function draw() {
     movingCircle.update();
     movingCircle.display();
   }
+  resetMatrix(); 
+  drawProgressBar();
+}
+
+function drawProgressBar() {
+
+  let progressBarHeight = 14; 
+  let progressBarY = height - progressBarHeight; 
+  
+  fill(0,0,0,150); 
+  stroke(255); 
+  strokeWeight(2);
+  rect(0, progressBarY-5, mouseX, progressBarHeight,10); 
 }
 
 class MovingCircle {

@@ -2,17 +2,30 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: black;
+  height: 100%; /* 确保body元素占满整个视口 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* 使得元素垂直排列 */
 }
+
 
 canvas {
   display: block;
-  border: 4px solid white;
+  border: 6px solid white;
   border-radius: 10px;
 }
 #canvas-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;  
-  border-color: aliceblue;
+}
+#text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#text p{
+  font-size: 14px;
+  color: white;
 }
