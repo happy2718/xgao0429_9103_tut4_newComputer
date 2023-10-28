@@ -16,7 +16,7 @@ function initializeSketch() {
 }
 
 function draw() {
-  movingSpeed = map(mouseX, 0, width, 0, 100);
+  movingSpeed = map(mouseX, 0, width, 0, 50);
   background(0);
   translate(width / 2, height / 2);
   for (let movingCircle of movingCircles) {
