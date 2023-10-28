@@ -3,8 +3,9 @@ function setup() {
 }
 
 function draw() {
+  movingSpeed = map(mouseX, 0, width, 0, 100);
   background(0);
   fill(255);
   noStroke();
-  ellipse(width / 2, height / 2, 50, 50);
+  ellipse(movingSpeed, height / 2, 50, 50);
 }
