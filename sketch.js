@@ -1,5 +1,7 @@
 let movingCircles = [];
 let movingSpeed;
+let isAnimationActive = true;
+
 function setup() {
   let canvasElement = createCanvas(1000, 600);
   canvasElement.parent('canvas-container');
@@ -50,5 +52,16 @@ class MovingCircle {
     stroke(233);
     strokeWeight(10);
     ellipse(adjustedXPosition, adjustedYPosition, circleRadius, circleRadius);
+  }
+}
+
+function keyPressed() {
+  if (key === 's' || key === 'S') {
+    isAnimationActive = !isAnimationActive;
+    if (isAnimationActive) {
+      loop();
+    } else {
+      noLoop();
+    }
   }
 }
