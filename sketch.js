@@ -46,10 +46,7 @@ class MovingCircle {
     let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
     let adjustedYPosition = map(this.yPosition / this.zPosition, 0, 1, 0, height);
     let circleRadius = map(this.zPosition, 0, width, 200, 50);
-    fill(255);
-    stroke(233);
-    strokeWeight(10);
-    ellipse(adjustedXPosition, adjustedYPosition, circleRadius, circleRadius);
+    this.circle.display();
   }
 }
 
