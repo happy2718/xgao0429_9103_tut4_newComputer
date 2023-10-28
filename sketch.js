@@ -74,6 +74,8 @@ class Circle {
     let smallcircleNumber = 40;
     let boundaryRadius = this.r + this.gap * 2 + 5 * this.gap * smallCircleRadius + smallCircleRadius;
     fill(this.colorE); 
+    strokeWeight(4);
+    stroke(255,255,255);
     ellipse(this.x, this.y, boundaryRadius * 2);
     for (let i = 0; i < this.count; i++) {
       let radius = this.r - i * this.gap;
