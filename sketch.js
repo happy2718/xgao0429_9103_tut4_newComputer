@@ -30,6 +30,7 @@ class MovingCircle {
     this.xPosition = random(-width/2, width/2);
     this.yPosition = random(-height/2, height/2);
     this.zPosition = random(width);
+    this.circle = new Circle(0, 0, 50, 16, 3);
   }
 
   update() {
