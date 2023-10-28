@@ -55,6 +55,61 @@ class MovingCircle {
   }
 }
 
+class Circle {
+  constructor(x, y, r, count, gap) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.count = count; 
+    this.gap = gap; 
+    this.colorA = color(random(255), random(255), random(255));
+    this.colorB = color(random(255), random(255), random(255));
+    this.colorC = color(random(255), random(255), random(255));
+    this.colorD = color(random(255), random(255), random(255));
+    this.colorF = color(random(255), random(255), random(255));
+    this.colorE = color(random(255), random(255), random(255));
+  }
+
+  display() {
+    let smallCircleRadius = 3.5;
+    let smallcircleNumber = 40;
+    let boundaryRadius = this.r + this.gap * 2 + 5 * this.gap * smallCircleRadius + smallCircleRadius;
+    fill(this.colorE); 
+    ellipse(this.x, this.y, boundaryRadius * 2);
+    for (let i = 0; i < this.count; i++) {
+      let radius = this.r - i * this.gap;
+      if (i === this.count - 1) {  
+        fill(255);  
+      } else if (i <= this.count / 2) {  
+        if (i % 2 === 1) {  
+          fill(this.colorA);  
+        } else {  
+          fill(this.colorB);  
+        }
+      } else if (i >= this.count / 2 + 1 && i < this.count - 1) {  
+        if (i % 2 === 1) {  
+          fill(this.colorC);  
+        } else {  
+          fill(this.colorD);  
+        }
+      }
+      noStroke();
+      ellipse(this.x, this.y, radius * 2);
+    }
+    for (let j = 0; j < 5; j++) {
+      let outerRadius = this.r + this.gap * 2 + j * this.gap * smallCircleRadius; 
+      fill(this.colorF); 
+      for (let i = 0; i < (smallcircleNumber + j * 3); i++) {
+        let angle = TWO_PI / (smallcircleNumber + j * 3) * i;
+        let smallCircleX = this.x + outerRadius * cos(angle);
+        let smallCircleY = this.y + outerRadius * sin(angle);
+        
+        ellipse(smallCircleX, smallCircleY, smallCircleRadius * 2);
+      }
+    }
+  }
+}
+
 function keyPressed() {
   if (key === 's' || key === 'S') {
     isAnimationActive = !isAnimationActive;
