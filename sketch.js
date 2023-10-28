@@ -27,20 +27,17 @@ function draw() {
 
 class MovingCircle {
   constructor() {
-    this.xPosition = random(-width, width);
-    this.yPosition = random(-height, height);
+    this.xPosition = random(-width/2, width/2);
+    this.yPosition = random(-height/2, height/2);
     this.zPosition = random(width);
-    this.previousZPosition = this.zPosition;
   }
 
   update() {
-    this.previousZPosition = this.zPosition;
     this.zPosition -= movingSpeed;
     if (this.zPosition < 1) {
       this.zPosition = width;
       this.xPosition = random(-width, width);
       this.yPosition = random(-height, height);
-      this.previousZPosition = this.zPosition;
     }
   }
 
