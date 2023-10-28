@@ -1,19 +1,23 @@
-let movingCircle;
+let movingCircles = [];
 function setup() {
   createCanvas(1000, 600);
-  movingCircle = new MovingCircle();
+  for (let i = 0; i < 8; i++) {
+    movingCircles.push(new MovingCircle());
+  }
 }
 
 function draw() {
   background(0);
-  movingCircle.update();
-  movingCircle.display();
+  for (let movingCircle of movingCircles) {
+    movingCircle.update();
+    movingCircle.display();
+  }
 }
 
 class MovingCircle {
   constructor() {
-    this.xPosition = width / 2;
-    this.yPosition = height / 2;
+    this.xPosition = random(width);
+    this.yPosition = random(height);
     this.circleRadius = 50;
   }
 
