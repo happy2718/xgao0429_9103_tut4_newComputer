@@ -27,6 +27,7 @@ function draw() {
   drawProgressBar();
 }
 
+
 function drawProgressBar() {
 
   let progressBarHeight = 12; 
@@ -75,11 +76,11 @@ class Circle {
     this.r = r;
     this.count = count; 
     this.gap = gap; 
-    this.colorA = color(random(255), random(255), random(255));
-    this.colorB = color(random(255), random(255), random(255));
-    this.colorC = color(random(255), random(255), random(255));
-    this.colorD = color(random(255), random(255), random(255));
-    this.colorF = color(random(255), random(255), random(255));
+    this.concentricColorOne = color(random(255), random(255), random(255));
+    this.concentricColorTwo = color(random(255), random(255), random(255));
+    this.concentricColorThree = color(random(255), random(255), random(255));
+    this.concentricColorTour = color(random(255), random(255), random(255));
+    this.smallCircleColor = color(random(255), random(255), random(255));
     this.colorE = color(random(255), random(255), random(255));
   }
 
@@ -87,6 +88,8 @@ class Circle {
     let smallCircleRadius = 3.5;
     let smallcircleNumber = 40;
     let boundaryRadius = this.r + this.gap * 2 + 5 * this.gap * smallCircleRadius + smallCircleRadius;
+    let colorIntensity = map(mouseX, 0, width, 0, 255);
+    this.colorE = color(red(this.colorE), green(this.colorE), blue(this.colorE), colorIntensity);
     fill(this.colorE); 
     strokeWeight(4);
     stroke(255,255,255);
@@ -97,15 +100,15 @@ class Circle {
         fill(255);  
       } else if (i <= this.count / 2) {  
         if (i % 2 === 1) {  
-          fill(this.colorA);  
+          fill(this.concentricColorOne);  
         } else {  
-          fill(this.colorB);  
+          fill(this.concentricColorTwo);  
         }
       } else if (i >= this.count / 2 + 1 && i < this.count - 1) {  
         if (i % 2 === 1) {  
-          fill(this.colorC);  
+          fill(this.concentricColorThree);  
         } else {  
-          fill(this.colorD);  
+          fill(this.concentricColorTour);  
         }
       }
       noStroke();
@@ -113,7 +116,7 @@ class Circle {
     }
     for (let j = 0; j < 5; j++) {
       let outerRadius = this.r + this.gap * 2 + j * this.gap * smallCircleRadius; 
-      fill(this.colorF); 
+      fill(this.smallCircleColor); 
       for (let i = 0; i < (smallcircleNumber + j * 3); i++) {
         let angle = TWO_PI / (smallcircleNumber + j * 3) * i;
         let smallCircleX = this.x + outerRadius * cos(angle);
