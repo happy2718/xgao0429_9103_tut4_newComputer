@@ -2,11 +2,11 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: black;
-  height: 100%; /* 确保body元素占满整个视口 */
+  height: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* 使得元素垂直排列 */
+  flex-direction: column; 
 }
 
 
