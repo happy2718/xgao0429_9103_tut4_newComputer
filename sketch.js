@@ -33,11 +33,11 @@ function drawProgressBar() {
   let progressBarHeight = 12; 
   let progressBarY = height - progressBarHeight; 
   let colorIntensity = map(mouseX, 0, width, 0, 255);
-  let constrainedMouseX = constrain(mouseX, 0, width);
+  let constrainedMouseX = constrain(mouseX, 0, width-20);
   fill(213,252,83,colorIntensity); 
   stroke(255); 
   strokeWeight(2);
-  rect(0, progressBarY-5, constrainedMouseX, progressBarHeight,10); 
+  rect(10, progressBarY-5, constrainedMouseX, progressBarHeight,10); 
 }
 
 class MovingCircle {
