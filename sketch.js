@@ -81,7 +81,7 @@ class Circle {
     this.concentricColorThree = color(random(255), random(255), random(255));
     this.concentricColorTour = color(random(255), random(255), random(255));
     this.smallCircleColor = color(random(255), random(255), random(255));
-    this.colorE = color(random(255), random(255), random(255));
+    this.bigCircleColor = color(random(255), random(255), random(255));
   }
 
   display() {
@@ -89,8 +89,8 @@ class Circle {
     let smallcircleNumber = 40;
     let boundaryRadius = this.r + this.gap * 2 + 5 * this.gap * smallCircleRadius + smallCircleRadius;
     let colorIntensity = map(mouseX, 0, width, 0, 255);
-    this.colorE = color(red(this.colorE), green(this.colorE), blue(this.colorE), colorIntensity);
-    fill(this.colorE); 
+    this.bigCircleColor = color(red(this.bigCircleColor), green(this.bigCircleColor), blue(this.bigCircleColor), colorIntensity);
+    fill(this.bigCircleColor); 
     strokeWeight(4);
     stroke(255,255,255);
     ellipse(this.x, this.y, boundaryRadius * 2);
