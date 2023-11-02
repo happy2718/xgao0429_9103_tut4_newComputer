@@ -40,11 +40,11 @@ This is a mouse and keyboard-based interactive animation that simulates the move
 
 **Show Case1:**<br>
 When the mouse is near the left side of the screen, the circle becomes transparent and moves slowly  
-![An image of a cat](assets/showcase1.png)
+![An image of a cat](assets/case1.png)
 
 **Show Case2:**<br>
 When the mouse is near the right side of the screen, the circle will have a different color and move very fast  
-![An image of a cat](assets/showcase2.png)
+![An image of a cat](assets/case2.png)
 
 **Show Case3:**<br> 
 When the s key is pressed, the user gets a random image similar to Ntange II (Grass)
