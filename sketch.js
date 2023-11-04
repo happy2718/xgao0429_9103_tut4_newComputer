@@ -142,9 +142,10 @@ class Circle {
   }
 }
 
+// Define a class named WhiteMovingCircle, which inherits from the MovingCircle class
 class WhiteMovingCircle extends MovingCircle {
   constructor() {
-    super(); 
+    super(); // Call the constructor of the parent class
   }
   display() {
     let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
