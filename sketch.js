@@ -1,7 +1,7 @@
 let movingCircles = [];// An array to store all the moving circle objects
 let movingSpeed;//A variable to store the moving speed of the circles
 let isAnimationActive = true;//// A boolean variable to control if the animation is active or not
-
+let backgroundCircles = [];
 function setup() {
   let canvasElement = createCanvas(1000, 600);// Creating a canvas of 1000x600 pixels and attaching it to the 'canvas-container' HTML element
   canvasElement.parent('canvas-container');
@@ -11,6 +11,10 @@ function setup() {
 // A function to initialize the circle objects on the canvas
 function initializeSketch() {
   movingCircles = [];
+  backgroundCircles = [];
+  for (let i = 0; i < 100; i++) {
+    backgroundCircles.push(new WhiteMovingCircle());
+  }
   for (let i = 0; i < 100; i++) {// Creating 100 moving circle objects and adding them to the array
     movingCircles.push(new MovingCircle());
   }
@@ -20,6 +24,10 @@ function draw() {
   movingSpeed = map(mouseX, 0, width, 0, 50);// Mapping the mouse's x position to set the moving speed, ranging from 0 to 50
   background(0);
   translate(width / 2, height / 2);
+  for (let backgroundCircle of backgroundCircles) {// Updating and displaying all the moving circle objects
+    backgroundCircle.update();
+    backgroundCircle.display();
+  }
   for (let movingCircle of movingCircles) {// Updating and displaying all the moving circle objects
     movingCircle.update();
     movingCircle.display();
@@ -134,6 +142,35 @@ class Circle {
     }
   }
 }
+
+class WhiteMovingCircle extends MovingCircle {
+  constructor() {
+    super(); 
+  }
+
+
+  display() {
+    let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
+    let adjustedYPosition = map(this.yPosition / this.zPosition, 0, 1, 0, height);
+    let circleRadius = map(this.zPosition, 0, width, 20, 5); // WhiteMovingCircle的大小范围可以根据需求调整
+
+
+    fill(255);
+    noStroke();
+
+
+    push();
+    translate(adjustedXPosition, adjustedYPosition);
+    ellipse(0, 0, circleRadius * 2); 
+    pop();
+  }
+}
+
+
+
+
+
+
 // Function to handle key presses
 function keyPressed() {
   if (key === 's' || key === 'S') {
