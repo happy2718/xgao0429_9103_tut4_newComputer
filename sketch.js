@@ -148,13 +148,9 @@ class WhiteMovingCircle extends MovingCircle {
   display() {
     let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
     let adjustedYPosition = map(this.yPosition / this.zPosition, 0, 1, 0, height);
-    let circleRadius = map(this.zPosition, 0, width, 20, 5); // WhiteMovingCircle的大小范围可以根据需求调整
-
-
+    let circleRadius = map(this.zPosition, 0, width, 20, 5); 
     fill(255);
     noStroke();
-
-
     push();
     translate(adjustedXPosition, adjustedYPosition);
     ellipse(0, 0, circleRadius * 2); 
