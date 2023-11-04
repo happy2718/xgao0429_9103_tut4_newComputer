@@ -1,3 +1,4 @@
+//Because of the complexity of the movement, I can't implement the circle non-overlap problem
 let movingCircles = [];// An array to store all the moving circle objects
 let movingSpeed;//A variable to store the moving speed of the circles
 let isAnimationActive = true;//// A boolean variable to control if the animation is active or not
@@ -36,7 +37,6 @@ function draw() {
   drawProgressBar();// Drawing the progress bar
 }
 
-
 function drawProgressBar() {
   let progressBarHeight = 12; // The height of the progress bar
   let progressBarY = height - progressBarHeight; // The y-coordinate of the progress bar
@@ -56,7 +56,6 @@ class MovingCircle {
     this.zPosition = random(width);
     this.circle = new Circle(0, 0, 50, 16, 3);// Creating a new Circle object
   }
-
   // Function to update the circle's position
   update() {
     this.zPosition -= movingSpeed;
@@ -66,7 +65,6 @@ class MovingCircle {
       this.yPosition = random(-height/2, height/2);
     }
   }
-
   // Function to display the circle
   display() {
     let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
@@ -147,8 +145,6 @@ class WhiteMovingCircle extends MovingCircle {
   constructor() {
     super(); 
   }
-
-
   display() {
     let adjustedXPosition = map(this.xPosition / this.zPosition, 0, 1, 0, width);
     let adjustedYPosition = map(this.yPosition / this.zPosition, 0, 1, 0, height);
@@ -165,11 +161,6 @@ class WhiteMovingCircle extends MovingCircle {
     pop();
   }
 }
-
-
-
-
-
 
 // Function to handle key presses
 function keyPressed() {
