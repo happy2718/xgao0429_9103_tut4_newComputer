@@ -56,6 +56,7 @@ class MovingCircle {
     this.zPosition = random(width);
     this.circle = new Circle(0, 0, 50, 16, 3);// Creating a new Circle object
   }
+
   // Function to update the circle's position
   update() {
     this.zPosition -= movingSpeed;
