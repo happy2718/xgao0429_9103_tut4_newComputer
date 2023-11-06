@@ -79,6 +79,7 @@ class MovingCircle {
   }
 }
 
+// Define a class named Circle
 class Circle {
   constructor(x, y, r, count, gap) {
     this.x = x;
