@@ -9,7 +9,7 @@ function setup() {
   initializeSketch();
 }
 
-// A function to initialize the circle objects on the canvas
+//A function to initialize the circle objects on the canvas
 function initializeSketch() {
   movingCircles = [];
   backgroundCircles = [];
